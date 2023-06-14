@@ -1,0 +1,11 @@
+{
+	"from": {
+		"Name": "Mythic",
+		"Description": "Mythic is a next-generation starter theme designed to help theme authors write elegant, intelligent, and modern code.",
+		"Namespace": "Mythic",
+		"Uri": "https://www.skarakostas.com/themes/mythic",
+		"Author": "Stelios Karakostas",
+		"AuthorEmail": "karakostastelios@gmail.com",
+		"AuthorUri": "https://www.skarakostas.com/"
+	}
+}
