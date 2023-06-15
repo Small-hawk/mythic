@@ -31,7 +31,7 @@ $mythic = \Hybrid\booted() ? \Hybrid\app() : new \Hybrid\Core\Application();
 # bootstrapping process.
 
 $providers = [
-	\Final2\Providers\AppServiceProvider::class,
+	\Mythic\Providers\AppServiceProvider::class,
 	\Hybrid\Template\Hierarchy\Provider::class,
 	\Hybrid\Template\Manager\Provider::class,
 	\Hybrid\Theme\Provider::class,
