@@ -22,7 +22,6 @@
 		"composer/installers" : "~1.0",
 		"themehybrid/hybrid-core"     : "^6.0",
 		"themehybrid/hybrid-contracts" : "^1.0",
-		"themehybrid/hybrid-customize" : "^1.0",
 		"themehybrid/hybrid-theme"     : "^1.0",
 		"themehybrid/hybrid-template" : "^1.0",
 		"themehybrid/hybrid-attr": "^1.0",
@@ -33,7 +32,8 @@
 		"themehybrid/hybrid-template-hierarchy": "^1.0",
 		"themehybrid/hybrid-template-manager": "^1.0",
 		"themehybrid/hybrid-tools": "^1.0",
-		"themehybrid/hybrid-view": "^1.0"
+		"themehybrid/hybrid-view": "^1.0",
+		"justintadlock/hybrid-customize" : "^1.0"
 	},
 	"require-dev": {
 		"wptrt/wpthemereview": "*",
