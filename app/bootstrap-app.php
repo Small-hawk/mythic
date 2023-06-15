@@ -30,11 +30,17 @@ $mythic = \Hybrid\booted() ? \Hybrid\app() : new \Hybrid\Core\Application();
 # for running the theme. Service providers are essentially the backbone of the
 # bootstrapping process.
 
-$mythic->provider( \Mythic\Providers\AppServiceProvider::class );
-$final->provider( \Hybrid\Template\Hierarchy\Provider::class );
-$final->provider( \Hybrid\Template\Manager\Provider::class );
-$final->provider( \Hybrid\Theme\Provider::class );
-$final->provider( \Hybrid\View\Provider::class );
+$providers = [
+	\Final2\Providers\AppServiceProvider::class,
+	\Hybrid\Template\Hierarchy\Provider::class,
+	\Hybrid\Template\Manager\Provider::class,
+	\Hybrid\Theme\Provider::class,
+	\Hybrid\View\Provider::class,
+];
+
+foreach ($providers as $provider) {
+	$final2->provider($provider);
+}
 
 # ------------------------------------------------------------------------------
 # Perform bootstrap actions.
