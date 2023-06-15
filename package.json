@@ -8,12 +8,12 @@
 	"main": "resources/js/app.js",
 	"scripts": {
 		"build": "npm run prod && npm run i18n && npm run export",
-		"dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"watch:sync": "cross-env sync=1 NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch:sync": "cross-env sync=1 NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"hot": "cross-env sync=1 NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-		"export": "cross-env export=1 NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"prod": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"export": "cross-env export=1 NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
 		"lint": "npm run lint:styles && npm run lint:scripts && npm run lint:php",
 		"lint:styles": "cross-env stylelint './resources/scss/**/*.scss' --syntax scss",
 		"lint:scripts": "cross-env eslint './resources/js/**/*.js'",
@@ -31,14 +31,12 @@
 		"url": "https://github.com/Small-hawk/mythic/issues"
 	},
 	"devDependencies": {
-		"browser-sync": "^2.29.3",
-		"browser-sync-webpack-plugin": "2.3.0",
+		"browser-sync": "^2.26.3",
+		"browser-sync-webpack-plugin": "^2.2.2",
 		"copy-webpack-plugin": "^11.0.0",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.42.0",
 		"@wordpress/eslint-plugin": "^14.8.0",
-		"imagemin-mozjpeg": "^10.0.0",
-		"imagemin-webpack-plugin": "^2.4.0",
 		"laravel-mix": "^6.0.49",
 		"node-wp-i18n": "^1.2.7",
 		"postcss-preset-env": "^8.5.0",
@@ -47,7 +45,7 @@
 		"sass-loader": "^13.3.2",
 		"stylelint": "14.2.0",
 		"@wordpress/stylelint-config": "^21.18.0",
-		"genesis-theme-claim": "^0.6.0",
+		"theme-claim": "^0.2.0",
 		"vue-template-compiler": "^2.7.14"
 	}
 }

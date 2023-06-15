@@ -22,6 +22,7 @@
 		"composer/installers" : "~1.0",
 		"themehybrid/hybrid-core"     : "^6.0",
 		"themehybrid/hybrid-contracts" : "^1.0",
+		"themehybrid/hybrid-customize" : "^1.0",
 		"themehybrid/hybrid-theme"     : "^1.0",
 		"themehybrid/hybrid-template" : "^1.0",
 		"themehybrid/hybrid-attr": "^1.0",
@@ -38,5 +39,10 @@
 		"wptrt/wpthemereview": "*",
 		"dealerdirect/phpcodesniffer-composer-installer": "^1.0"
 	},
-	"minimum-stability": "dev"
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	}
 }

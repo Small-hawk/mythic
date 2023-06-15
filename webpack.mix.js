@@ -7,18 +7,16 @@
  *
  * @link https://laravel.com/docs/5.6/mix
  *
- * @package   Mythic
+ * @package   newnewnewmythic
  * @author    Justin Tadlock <justintadlock@gmail.com>
  * @copyright 2018 Justin Tadlock
- * @link      https://themehybrid.com/themes/mythic
+ * @link      https://themehybrid.com/themes/newnewmythic
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
  */
 
 // Import required packages.
 const mix               = require( 'laravel-mix' );
-const ImageminPlugin    = require( 'imagemin-webpack-plugin' ).default;
 const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
-const imageminMozjpeg   = require( 'imagemin-mozjpeg' );
 
 /*
  * -----------------------------------------------------------------------------
@@ -40,7 +38,7 @@ if ( process.env.export ) {
  * Build Process
  * -----------------------------------------------------------------------------
  * The section below handles processing, compiling, transpiling, and combining
- * all of the theme's assets into their final location. This is the meat of the
+ * all the theme's assets into their final location. This is the meat of the
  * build process.
  * -----------------------------------------------------------------------------
  */
@@ -49,7 +47,7 @@ if ( process.env.export ) {
  * Sets the development path to assets. By default, this is the `/resources`
  * folder in the theme.
  */
-const devPath  = 'resources';
+const path  = 'resources';
 
 /*
  * Sets the path to the generated assets. By default, this is the `/dist` folder
@@ -89,9 +87,9 @@ mix.version();
  *
  * @link https://laravel.com/docs/5.6/mix#working-with-scripts
  */
-mix.js( `${devPath}/js/app.js`,                'js' )
-   .js( `${devPath}/js/customize-controls.js`, 'js' )
-   .js( `${devPath}/js/customize-preview.js`,  'js' );
+mix.js( `${path}/js/app.js`,                'js' )
+   .js( `${path}/js/customize-controls.js`, 'js' )
+   .js( `${path}/js/customize-preview.js`,  'js' );
 
 /*
  * Compile CSS. Mix supports Sass, Less, Stylus, and plain CSS, and has functions
@@ -103,16 +101,18 @@ mix.js( `${devPath}/js/app.js`,                'js' )
  */
 
 // Sass configuration.
-var sassConfig = {
-	outputStyle : 'expanded',
-	indentType  : 'tab',
-	indentWidth : 1
+const sassConfig = {
+	sassOptions: {
+		outputStyle: 'expanded',
+		indentType: 'tab',
+		indentWidth: 1
+	}
 };
 
 // Compile SASS/CSS.
-mix.sass( `${devPath}/scss/screen.scss`,             'css', sassConfig )
-   .sass( `${devPath}/scss/editor.scss`,             'css', sassConfig )
-   .sass( `${devPath}/scss/customize-controls.scss`, 'css', sassConfig );
+mix.sass( `${path}/scss/screen.scss`,             'css', sassConfig )
+   .sass( `${path}/scss/editor.scss`,             'css', sassConfig )
+   .sass( `${path}/scss/customize-controls.scss`, 'css', sassConfig );
 
 /*
  * Add custom Webpack configuration.
@@ -133,36 +133,16 @@ mix.webpackConfig( {
 		alias : {
 			// Alias for Hybrid Customize assets.
 			// Import from `hybrid-customize/js` or `~hybrid-customize/scss`.
-			'hybrid-customize' : path.resolve( __dirname, 'vendor/justintadlock/hybrid-customize/resources/' )
+			// 'hybrid-customize' : path.resolve( __dirname, 'vendor/themehybrid/hybrid-customize/resources/' )
 		}
 	},
 	plugins     : [
 		// @link https://github.com/webpack-contrib/copy-webpack-plugin
-		new CopyWebpackPlugin( [
-			{ from : `${devPath}/img`,   to : 'img'   },
-			{ from : `${devPath}/svg`,   to : 'svg'   },
-			{ from : `${devPath}/fonts`, to : 'fonts' }
-		] ),
-		// @link https://github.com/Klathmon/imagemin-webpack-plugin
-		new ImageminPlugin( {
-			test     : /\.(jpe?g|png|gif|svg)$/i,
-			disable  : process.env.NODE_ENV !== 'production',
-			optipng  : { optimizationLevel : 3 },
-			gifsicle : { optimizationLevel : 3 },
-			pngquant : {
-				quality : '65-90',
-				speed   : 4
-			},
-			svgo : {
-				plugins : [
-					{ cleanupIDs                : false },
-					{ removeViewBox             : false },
-					{ removeUnknownsAndDefaults : false }
-				]
-			},
-			plugins : [
-				// @link https://github.com/imagemin/imagemin-mozjpeg
-				imageminMozjpeg( { quality : 75 } )
+		new CopyWebpackPlugin( {
+			patterns: [
+				{ from : `${path}/img`,   to : 'img'   },
+				{ from : `${path}/svg`,   to : 'svg'   },
+				{ from : `${path}/fonts`, to : 'fonts' }
 			]
 		} )
 	]
@@ -179,7 +159,7 @@ if ( process.env.sync ) {
 		proxy : 'localhost',
 		files : [
 			'dist/**/*',
-			`${devPath}/views/**/*.php`,
+			`${path}/views/**/*.php`,
 			'app/**/*.php',
 			'functions.php'
 		]
