@@ -17,6 +17,8 @@ namespace Mythic\Providers;
 
 use Hybrid\Core\ServiceProvider;
 use Mythic\Customize\Customize;
+use Hybrid\View\Contracts\Engine as EngineContract;
+use Hybrid\View\Contracts\View as ViewContract;
 
 /**
  * App service provider.
@@ -46,6 +48,10 @@ class AppServiceProvider extends ServiceProvider {
 
 			return file_exists( $file ) ? json_decode( file_get_contents( $file ), true ) : null;
 		} );
+
+		// Create aliases for the view and engine.
+		$this->app->alias( ViewContract::class, 'view' );
+		$this->app->alias( EngineContract::class, 'view/engine' );
 	}
 
 	/**

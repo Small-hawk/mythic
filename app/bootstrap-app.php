@@ -31,6 +31,10 @@ $mythic = \Hybrid\booted() ? \Hybrid\app() : new \Hybrid\Core\Application();
 # bootstrapping process.
 
 $mythic->provider( \Mythic\Providers\AppServiceProvider::class );
+$final->provider( \Hybrid\Template\Hierarchy\Provider::class );
+$final->provider( \Hybrid\Template\Manager\Provider::class );
+$final->provider( \Hybrid\Theme\Provider::class );
+$final->provider( \Hybrid\View\Provider::class );
 
 # ------------------------------------------------------------------------------
 # Perform bootstrap actions.
