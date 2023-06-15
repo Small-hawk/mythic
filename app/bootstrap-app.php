@@ -42,6 +42,34 @@ foreach ($providers as $provider) {
 	$mythic->provider($provider);
 }
 
+//$mythic->provider( \Mythic\Providers\AppServiceProvider::class );
+//$mythic->provider( \Hybrid\Template\Hierarchy\Provider::class );
+//$mythic->provider( \Hybrid\Template\Manager\Provider::class );
+//$mythic->provider( \Hybrid\Theme\Provider::class );
+//$mythic->provider( \Hybrid\View\Provider::class );
+//$mythic->provider( \Hybrid\Attr\Provider::class );
+//$mythic->provider( \Hybrid\Lang\Provider::class );
+//$mythic->provider( \Hybrid\Media\Meta\Provider::class );
+//$mythic->provider( \Hybrid\Pagination\Provider::class );
+//$mythic->provider( \Hybrid\Customize\Provider::class );
+
+$providers = [
+    \Mythic\Providers\AppServiceProvider::class,
+    \Hybrid\Template\Hierarchy\Provider::class,
+    \Hybrid\Template\Manager\Provider::class,
+    \Hybrid\Theme\Provider::class,
+    \Hybrid\View\Provider::class,
+    \Hybrid\Attr\Provider::class,
+    \Hybrid\Lang\Provider::class,
+    \Hybrid\Media\Meta\Provider::class,
+    \Hybrid\Pagination\Provider::class,
+    \Hybrid\Customize\Provider::class,
+];
+
+foreach ($providers as $provider) {
+    $mythic->provider($provider);
+}
+
 # ------------------------------------------------------------------------------
 # Perform bootstrap actions.
 # ------------------------------------------------------------------------------
