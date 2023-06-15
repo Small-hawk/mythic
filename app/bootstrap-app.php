@@ -39,7 +39,7 @@ $providers = [
 ];
 
 foreach ($providers as $provider) {
-	$final2->provider($provider);
+	$mythic->provider($provider);
 }
 
 # ------------------------------------------------------------------------------
